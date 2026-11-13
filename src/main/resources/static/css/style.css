@@ -1,0 +1,142 @@
+/* Student Attendance System - custom styles on top of Bootstrap 5 */
+:root {
+    --ink: #1b2a49;          /* sidebar / headings */
+    --ink-soft: #2c3e66;
+    --primary: #1f6f8b;      /* buttons, links */
+    --primary-dark: #185a72;
+    --marker: #f2b134;       /* active menu marker */
+    --page-bg: #f1f4f8;
+    --line: #dde3ec;
+    --muted: #64718a;
+}
+
+body {
+    background: var(--page-bg);
+    color: #1f2937;
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Bootstrap primary colour -> our teal-blue */
+.btn-primary {
+    --bs-btn-bg: var(--primary);
+    --bs-btn-border-color: var(--primary);
+    --bs-btn-hover-bg: var(--primary-dark);
+    --bs-btn-hover-border-color: var(--primary-dark);
+    --bs-btn-active-bg: var(--primary-dark);
+    --bs-btn-active-border-color: var(--primary-dark);
+    --bs-btn-disabled-bg: var(--primary);
+    --bs-btn-disabled-border-color: var(--primary);
+}
+.btn-outline-primary {
+    --bs-btn-color: var(--primary);
+    --bs-btn-border-color: var(--primary);
+    --bs-btn-hover-bg: var(--primary);
+    --bs-btn-hover-border-color: var(--primary);
+    --bs-btn-active-bg: var(--primary);
+    --bs-btn-active-border-color: var(--primary);
+}
+a { color: var(--primary); }
+
+/* ---------- Layout with sidebar ---------- */
+.app-shell { display: flex; min-height: 100vh; }
+
+.sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    background: var(--ink);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar-brand { padding: 24px 22px 20px; border-bottom: 1px solid rgba(255, 255, 255, .12); }
+.sidebar-brand .title { font-size: 1.1rem; font-weight: 600; letter-spacing: .2px; }
+.sidebar-brand .subtitle { font-size: .8rem; color: rgba(255, 255, 255, .6); margin-top: 2px; }
+
+.sidebar-nav { padding: 16px 12px; flex: 1; }
+.sidebar-nav a {
+    display: block;
+    padding: 10px 14px;
+    margin-bottom: 4px;
+    color: rgba(255, 255, 255, .78);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    border-radius: 4px;
+    font-size: .95rem;
+}
+.sidebar-nav a:hover { background: var(--ink-soft); color: #fff; }
+.sidebar-nav a.active { background: var(--ink-soft); color: #fff; border-left-color: var(--marker); font-weight: 600; }
+
+.content { flex: 1; min-width: 0; padding: 28px 36px; }
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+.page-header h1 { font-size: 1.55rem; font-weight: 600; color: var(--ink); margin: 0; }
+.user-chip { font-size: .9rem; color: var(--muted); }
+
+/* ---------- Cards & tables ---------- */
+.card { border: 1px solid var(--line); border-radius: 6px; box-shadow: none; }
+.card-header { background: #fff; border-bottom: 1px solid var(--line); font-weight: 600; color: var(--ink); }
+
+.stat-card { border-left: 4px solid var(--primary); }
+.stat-card .stat-label { color: var(--muted); font-size: .9rem; }
+.stat-card .stat-value { font-size: 1.9rem; font-weight: 700; color: var(--ink); line-height: 1.2; }
+.stat-card .stat-note { color: var(--muted); font-size: .82rem; }
+.stat-card.warn { border-left-color: #c0392b; }
+
+.table { margin-bottom: 0; }
+.table thead th {
+    background: #e9eef5;
+    color: var(--ink);
+    font-weight: 600;
+    font-size: .88rem;
+    white-space: nowrap;
+}
+.table td { vertical-align: middle; }
+
+.form-label { font-weight: 600; font-size: .9rem; color: var(--ink); }
+
+/* ---------- Login page ---------- */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: linear-gradient(160deg, var(--ink) 0%, #26527a 100%);
+}
+.login-card { width: 100%; max-width: 420px; border: 0; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, .25); }
+.login-card h1 { font-size: 1.35rem; font-weight: 600; color: var(--ink); }
+.demo-box { background: #f4f7fb; border: 1px dashed var(--line); border-radius: 6px; font-size: .82rem; color: var(--muted); }
+
+/* ---------- Student dashboard ---------- */
+.student-nav { background: var(--ink); }
+.student-container { max-width: 1100px; margin: 0 auto; padding: 28px 20px; }
+.overall-percent { font-size: 2.6rem; font-weight: 700; color: var(--ink); line-height: 1; }
+.profile-row { display: flex; padding: 6px 0; border-bottom: 1px solid #eef1f6; font-size: .93rem; }
+.profile-row:last-child { border-bottom: 0; }
+.profile-row .key { width: 120px; color: var(--muted); flex-shrink: 0; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991px) {
+    .app-shell { flex-direction: column; }
+    .sidebar { width: 100%; height: auto; position: static; }
+    .sidebar-brand { padding: 14px 18px; }
+    .sidebar-nav { display: flex; flex-wrap: wrap; gap: 4px; padding: 10px; }
+    .sidebar-nav a { margin: 0; }
+    .content { padding: 18px 14px; }
+}
+
+@media print {
+    .sidebar, .no-print { display: none !important; }
+    .content { padding: 0; }
+    body { background: #fff; }
+}
